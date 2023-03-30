@@ -17,7 +17,7 @@ function Users() {
       <UsersLayout title="Users List">
         <div className="flex justify-center gap-4 flex-wrap">
           {response?.users.map((user) => (
-            <div className="basis-1/4" key={user.id}>
+            <div className="basis-1/4 2xl:basis-1/5" key={user.id}>
               <UsersCard
                 id={user.id}
                 firstname={user.firstName}

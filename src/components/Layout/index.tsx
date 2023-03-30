@@ -4,9 +4,9 @@ function Layout({ children }: PropsWithChildren) {
   return (
     <>
       <div>
-        <div className="h-11 bg-blue-900 flex items-center">
-          <div className="p-4">
-            <h1 className="text-white text-2xl">
+        <div className="h-11 flex items-center">
+          <div className="p-5">
+            <h1 className="text-white text-4xl">
               code<span className="text-sky-700">rex</span>
             </h1>
           </div>
