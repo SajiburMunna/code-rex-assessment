@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import axios, { AxiosError } from "axios";
 
-function useUsers(endpoint: string) {
-  const [response, setResponse] = useState<Users>();
+function useUser(endpoint: string) {
+  const router = useRouter();
+  const [response, setResponse] = useState<User>();
   const [error, setError] = useState<AxiosError>();
   const [loading, setLoading] = useState(true);
 
@@ -10,7 +12,7 @@ function useUsers(endpoint: string) {
     async function fetchUserData() {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}${endpoint}/${router.query.id}`
         );
         setResponse(response.data);
       } catch (error: any) {
@@ -19,12 +21,12 @@ function useUsers(endpoint: string) {
         setLoading(false);
       }
     }
-    if (endpoint) {
+    if (router.query.id) {
       fetchUserData();
     }
-  }, [endpoint]);
+  }, [endpoint, router.query.id]);
 
   return { response, error, loading };
 }
 
-export default useUsers;
+export default useUser;
