@@ -1,13 +1,15 @@
-import useUser from "@/hooks/useUser";
+import Profile from "@/features/Profile";
+import Head from "next/head";
 
-function Profile() {
-  const { response, loading } = useUser("/users");
-
-  if (loading && !response) {
-    return <div>Loading...</div>;
-  }
-
-  return <div>Profile</div>;
+function UserProfile() {
+  return (
+    <div>
+      <Head>
+        <title>Prfile|User</title>
+      </Head>
+      <Profile />
+    </div>
+  );
 }
 
-export default Profile;
+export default UserProfile;
