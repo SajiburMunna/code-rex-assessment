@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 axios.defaults.baseURL = "https://dummyjson.com";
 
 export const useUsers = (axiosParams: AxiosRequestConfig) => {
-  const [response, setResponse] = useState<AxiosResponse>();
+  const [response, setResponse] = useState<Users>();
   const [error, setError] = useState<AxiosError>();
   const [loading, setLoading] = useState(true);
 
