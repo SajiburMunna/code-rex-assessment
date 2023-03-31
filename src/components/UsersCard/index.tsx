@@ -1,10 +1,10 @@
-type User = {
+interface User {
   id: number;
   firstname: string;
   lastname: string;
   email: string;
   company: string;
-};
+}
 
 function UsersCard({ id, firstname, lastname, email, company }: User) {
   return (

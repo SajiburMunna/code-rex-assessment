@@ -4,10 +4,10 @@ import { PropsWithChildren } from "react";
 import BackIcon from "../../../public/Icon/BackIcon";
 import Title from "../Title";
 
-type Props = {
+interface Props {
   title: string;
   backbutton?: boolean;
-};
+}
 
 function UsersLayout({
   children,
