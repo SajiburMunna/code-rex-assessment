@@ -1,7 +1,16 @@
+import Masonry from "react-masonry-css";
+
 import PostCard from "@/components/PostCard";
 import UsersCard from "@/components/UsersCard";
 import UsersLayout from "@/components/UsersLayout";
 import useUser from "@/hooks/useUser";
+
+const breakpointColumnsObj = {
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 1,
+};
 
 function Profile() {
   const { response: userData, loading: isLoadingUserData } = useUser({
@@ -31,15 +40,18 @@ function Profile() {
         />
 
         <h1 className="text-2xl font-bold mb-3 mt-3">User Posts</h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
           {userPost.posts.map((post) => (
-            <div className="grid gap-4" key={post.id}>
-              <div>
-                <PostCard title={post.title} body={post.body} />
-              </div>
+            <div key={post.id}>
+              <PostCard title={post.title} body={post.body} />
             </div>
           ))}
-        </div>
+        </Masonry>
       </UsersLayout>
     </div>
   );
