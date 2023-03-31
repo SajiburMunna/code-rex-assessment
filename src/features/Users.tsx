@@ -17,7 +17,7 @@ function Users() {
         <div className="flex justify-center gap-4 flex-wrap">
           {response?.users.map((user) => (
             <div className="basis-1/4 2xl:basis-1/5" key={user.id}>
-              <Link href={`${user.id}`} legacyBehavior>
+              <Link href={`profile/${user.id}`} legacyBehavior>
                 <a>
                   <UsersCard
                     id={user.id}

@@ -4,6 +4,7 @@ import PostCard from "@/components/PostCard";
 import UsersCard from "@/components/UsersCard";
 import UsersLayout from "@/components/UsersLayout";
 import useUser from "@/hooks/useUser";
+import Title from "@/components/Title";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -30,7 +31,7 @@ function Profile() {
 
   return (
     <div>
-      <UsersLayout title="User Profile">
+      <UsersLayout backbutton title="User Profile">
         <UsersCard
           id={userInfo.id}
           firstname={userInfo.firstName}
@@ -38,9 +39,7 @@ function Profile() {
           email={userInfo.email}
           company={userInfo.company.name}
         />
-
-        <h1 className="text-2xl font-bold mb-3 mt-3">User Posts</h1>
-
+        <Title title="User Posts" />
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
