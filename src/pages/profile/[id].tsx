@@ -1,5 +1,6 @@
-import Profile from "@/features/Profile";
 import Head from "next/head";
+
+import Profile from "@/features/Profile";
 
 function UserProfile() {
   return (
