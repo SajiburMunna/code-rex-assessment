@@ -3,12 +3,13 @@ import Link from "next/link";
 import UsersCard from "@/components/UsersCard";
 import UsersLayout from "@/components/UsersLayout";
 import useUsers from "@/hooks/useUsers";
+import Loader from "@/components/Loader";
 
 function Users() {
   const { response, loading } = useUsers("/users");
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

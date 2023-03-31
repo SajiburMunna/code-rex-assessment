@@ -5,6 +5,7 @@ import UsersCard from "@/components/UsersCard";
 import UsersLayout from "@/components/UsersLayout";
 import useUser from "@/hooks/useUser";
 import Title from "@/components/Title";
+import Loader from "@/components/Loader";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -25,8 +26,8 @@ function Profile() {
   const userInfo = userData as User;
   const userPost = post as Posts;
 
-  if (isLoadingUserPosts || isLoadingUserData || !userInfo || !userPost) {
-    return <div>Loading...</div>;
+  if (isLoadingUserPosts || isLoadingUserData) {
+    return <Loader />;
   }
 
   return (
